@@ -1,0 +1,116 @@
+<div class="animated fadeIn">
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Listado de Articulos</h2>
+            </div>
+          </header>
+          <!-- Dashboard Counts Section-->
+          <section class="dashboard-counts no-padding-bottom">
+            <div class="container-fluid">
+              <div class="row bg-white has-shadow">
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-violet"><i class="icon-check"></i></div>
+                    <div class="title"><span>Clientes</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>226</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-red"><i class="icon-padnote"></i></div>
+                    <div class="title"><span>Compras</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>710</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-green"><i class="icon-bill"></i></div>
+                    <div class="title"><span>Productos</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>890</strong></div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="col-xl-3 col-sm-6">
+                  <div class="item d-flex align-items-center">
+                    <div class="icon bg-orange"><i class="icon-user"></i></div>
+                    <div class="title"><span>Usuarios</span>
+                      <div class="progress">
+                        <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                      </div>
+                    </div>
+                    <div class="number"><strong>22</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Client Section-->
+          <section class="dashboard-counts">
+            <div class="container-fluid">
+              <div class="row bg-white has-shadow">
+                <!-- Client Profile -->
+                <div class="col-lg-12">
+                  <table class="table">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>#</th>
+                          <th>image</th>
+                          <th>Producto</th>
+                          <th>Marca</th>
+                          <th>Precio</th>
+                          <th>Stock</th>
+                          <th>Ventas</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let producto of productos let i = index">
+                          <td class="td-top">{{i+1}}</td>
+                          <td><img src="{{ producto. image }}" alt="{{ producto.productos }}" class="img-table"></td>
+                          <td>{{ producto.productos }}</td>
+                          <td>{{ producto.marca }}</td>
+                          <td><strong>{{ producto.precio }}</strong></td>
+                          <td class="text-danger">{{ producto.stock }}</td>
+                          <td>{{ producto.vendidos }}</td>
+                          <td>
+                            <a [routerLink]="['/detalle-producto',i]" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Shop Ecommerce &copy; 2017-2018</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Desarrollo federico Taborda | <a href="https://bootstrapious.com/admin-templates" class="external">federicomtaborda@gmail.com</a></p>
+
+                </div>
+              </div>
+            </div>
+          </footer>
+<div>

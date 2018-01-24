@@ -1,0 +1,100 @@
+<div class="animated fadeIn">
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Detalle del Articulos</h2>
+            </div>
+          </header>
+          <!-- Dashboard Counts Section-->
+        <section class="dashboard-counts no-padding-bottom">
+          <div class="container-fluid">
+            <div class="row bg-white has-shadow">
+              <!-- Item -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="item d-flex align-items-center">
+                  <div class="icon bg-violet"><i class="icon-check"></i></div>
+                  <div class="title"><span>Clientes</span>
+                    <div class="progress">
+                      <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                    </div>
+                  </div>
+                  <div class="number"><strong>226</strong></div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="item d-flex align-items-center">
+                  <div class="icon bg-red"><i class="icon-padnote"></i></div>
+                  <div class="title"><span>Compras</span>
+                    <div class="progress">
+                      <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                    </div>
+                  </div>
+                  <div class="number"><strong>710</strong></div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="item d-flex align-items-center">
+                  <div class="icon bg-green"><i class="icon-bill"></i></div>
+                  <div class="title"><span>Productos</span>
+                    <div class="progress">
+                      <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                    </div>
+                  </div>
+                  <div class="number"><strong>890</strong></div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="item d-flex align-items-center">
+                  <div class="icon bg-orange"><i class="icon-user"></i></div>
+                  <div class="title"><span>Usuarios</span>
+                    <div class="progress">
+                      <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                    </div>
+                  </div>
+                  <div class="number"><strong>22</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+          <!-- Client Section-->
+          <section class="dashboard-counts">
+            <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="card" style="width: 20rem;">
+                        <img class="img-fluid" src="{{producto.image}}" alt="{{producto.productos}}">
+                        <div class="card-block">
+                          <h4 class="card-title">{{producto.productos}}</h4>
+                          <p class="card-text text-primary text-center">{{producto.marca}}</p>
+                          <h3 class="card-text">{{producto.precio}}</h3>
+                          <div class="card-small">
+                            <small> Stock: {{producto.stock}} </small>
+                            <small> Ventas: {{producto.vendidos}} </small>
+                          </div>
+                          <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Comprar </a>
+                          <a [routerLink]="['/list-productos']" class="btn btn-secondary"> volver </a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </section>
+
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Shop Ecommerce &copy; 2017-2018</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Desarrollo federico Taborda | <a href="https://bootstrapious.com/admin-templates" class="external">federicomtaborda@gmail.com</a></p>
+
+                </div>
+              </div>
+            </div>
+          </footer>
+</div>

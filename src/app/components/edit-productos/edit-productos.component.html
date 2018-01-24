@@ -1,0 +1,172 @@
+<div class="animated fadeIn">
+
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Panel de Articulos</h2>
+    </div>
+  </header>
+    <!-- Dashboard Counts Section-->
+  <section class="dashboard-counts no-padding-bottom">
+    <div class="container-fluid">
+      <div class="row bg-white has-shadow">
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-violet"><i class="icon-check"></i></div>
+            <div class="title"><span>Clientes</span>
+              <div class="progress">
+                <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+              </div>
+            </div>
+            <div class="number"><strong>226</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-red"><i class="icon-padnote"></i></div>
+            <div class="title"><span>Compras</span>
+              <div class="progress">
+                <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+              </div>
+            </div>
+            <div class="number"><strong>710</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-green"><i class="icon-bill"></i></div>
+            <div class="title"><span>Productos</span>
+              <div class="progress">
+                <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+              </div>
+            </div>
+            <div class="number"><strong>890</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-orange"><i class="icon-user"></i></div>
+            <div class="title"><span>Usuarios</span>
+              <div class="progress">
+                <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+              </div>
+            </div>
+            <div class="number"><strong>22</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forms Section-->
+          <section class="forms">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Basic Form-->
+                <div class="col-md-6">
+                  <div class="card">
+
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Formulario de Producto</h3>
+                    </div>
+                    <div class="card-body">
+                      <p class="text-success text-right"> {{estado}} </p>
+
+
+                      <form (ngSubmit)="guardar()" #forma="ngForm">
+
+                        <div class="form-group">
+                          <label class="form-control-label">Nombre del Producto</label>
+                          <input [(ngModel)]="producto.productos"
+                          type="text" placeholder="Producto" class="form-control" name="productos"
+                          required autofocus>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="form-control-label">marca</label>
+                          <input [(ngModel)]="producto.marca" name="marca"
+                          type="text" placeholder="Marca" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-control-label">$ Precio</label>
+                          <input [(ngModel)]="producto.precio"
+                          type="text" placeholder="Precio" class="form-control" name="precio">
+                        </div>
+
+                        <div class="form-group">
+                          <label class="form-control-label">Stock</label>
+                          <input [(ngModel)]="producto.stock"
+                          type="text" placeholder="stock" class="form-control" name="stock">
+                        </div>
+
+                        <div class="form-group">
+                          <input [disabled]="!forma.valid"
+                           type="submit" value="Guardar" class="btn btn-primary">
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row bg-white has-shadow">
+                    <table class="table">
+                          <thead class="thead-inverse">
+                            <tr>
+                              <th>#</th>
+                              <th>image</th>
+                              <th>Producto</th>
+                              <th>Marca</th>
+                              <th>Precio</th>
+                              <th>Stock</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let producto of productos let i = index" class="animated fadeIn">
+                              <td class="td-top">{{i+1}}</td>
+                              <td><img src="{{ imagen }}" alt="{{ producto.productos }}" class="img-table rounded-circle"></td>
+                              <td>{{ producto.productos }}</td>
+                              <td>{{ producto.marca }}</td>
+                              <td><strong>{{ producto.precio }}</strong></td>
+                              <td class="text-danger">{{ producto.stock }}</td>
+                              <td>{{ producto.vendidos }}</td>
+                              <td>
+                                <button class="btn btn-outline-info btn-sm" (click) = "editar(i)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                <button class="btn btn-outline-info btn-sm" (click) = "eliminar(i)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div><br>
+                  <div *ngIf="productos < 1" class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Ups!</h4>
+                    <p>Aún no se ingresaron productos, los mismos se cargaran como arreglo de objetos y se borraran al recargar la página..</p>
+                    <p class="mb-0">Esto es solo un CRUD de demostración.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+  <footer class="main-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Shop Ecommerce &copy; 2017-2018</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Desarrollo federico Taborda | <a href="https://bootstrapious.com/admin-templates" class="external">federicomtaborda@gmail.com</a></p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
